@@ -1,0 +1,39 @@
+{
+  "name": "api-creators",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "scss": "node-sass --include-path node_modules --output-style compressed -o public/stylesheets/ theme/style.scss",
+    "autoprefixer": "postcss -u autoprefixer -b \"last 2 versions\" -r public/stylesheets/*",
+    "reload": "browser-sync start --proxy localhost:3000 --port 7000 --files  \"views/**/*.pug\", \"public/stylesheets/style.css\"",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "watch:css": "onchange \"theme/**/*.scss\" -- npm run build:css",
+    "watch:css-dev": "onchange \"theme/**/*.scss\" -- npm run scss",
+    "dev": "parallelshell \"nodemon ./bin/Www\"  \"npm run watch:css-dev\" \"npm run reload\""
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.3",
+    "crypto": "0.0.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.6",
+    "morgan": "~1.8.1",
+    "pug": "^2.0.0-beta9",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "browser-sync": "^2.18.8",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "onchange": "^3.2.1",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^3.2.0"
+  }
+}
