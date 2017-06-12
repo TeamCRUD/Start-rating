@@ -10,15 +10,18 @@
     "build:css": "npm run scss && npm run autoprefixer",
     "watch:css": "onchange \"theme/**/*.scss\" -- npm run build:css",
     "watch:css-dev": "onchange \"theme/**/*.scss\" -- npm run scss",
-    "dev": "parallelshell \"nodemon ./bin/Www\"  \"npm run watch:css-dev\" \"npm run reload\""
+    "dev": "concurrently \"nodemon ./bin/Www\"  \"npm run watch:css-dev\" \"npm run reload\"",
+    "postinstall": "npm i -g concurrently && npm i -g node-sass"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
+    "concurrently": "^3.4.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",
     "crypto": "0.0.3",
     "debug": "~2.6.3",
+    "ed-grid": "^2.1.1",
     "express": "~4.15.2",
     "jwt-simple": "^0.5.1",
     "moment": "^2.18.1",
@@ -33,7 +36,6 @@
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "onchange": "^3.2.1",
-    "parallelshell": "^2.0.0",
     "postcss-cli": "^3.2.0"
   }
 }
