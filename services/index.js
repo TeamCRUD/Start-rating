@@ -1,9 +1,11 @@
 'use strict'
 
+// Get elements
 const jwt = require('jwt-simple')
 const moment = require('moment')
 const config = require('../config')
 
+// Create handler
 function createToken (user) {
     const playload = {
         sub: user._id,
@@ -14,6 +16,7 @@ function createToken (user) {
     return jwt.encode(playload, config.SECRET_TOKEN)
 }
 
+// Decode handler
 function decodeToken (token) {
     const decoded = new Promise((resolve, reject) => {
         try{

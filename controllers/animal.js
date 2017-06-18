@@ -1,7 +1,9 @@
 'use stric'
 
+// Get elements
 const Product = require('../models/product')
 
+// Read only one animal
 function getProduct (req, res) {
     let productId = req.params.productId
 
@@ -13,6 +15,7 @@ function getProduct (req, res) {
     })
 }
 
+// Read animals
 function getProducts (req, res) {
     Product.find({}, (err, products) => {
         if (err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
@@ -22,6 +25,7 @@ function getProducts (req, res) {
     })
 }
 
+// Create animal
 function saveProduct (req, res) {
     console.log('POST /api/product')
     console.log(req.body)
@@ -41,6 +45,7 @@ function saveProduct (req, res) {
     })
 }
 
+// Update animal
 function updateProduct (req, res) {
     let productId = req.params.productId
     let update = req.body
@@ -52,6 +57,7 @@ function updateProduct (req, res) {
     })
 }
 
+// Delete animals
 function deleteProduct (req, res) {
     let productId = req.params.productId
 

@@ -1,9 +1,10 @@
 'use strict'
 
-const mongoose = require('mongoose')
+// Get elements
 const User = require('../models/user')
 const service = require('../services')
 
+// Signup handler
 function signUp (req, res) {
     const user = new User({
         email: req.body.email,
@@ -18,6 +19,7 @@ function signUp (req, res) {
     })
 }
 
+// Signin handler
 function signIn (req, res) {
     User.find({ email: req.body.email }, (err, user) => {
         if (err) return res.status(500).send({ message: err })
