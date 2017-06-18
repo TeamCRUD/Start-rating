@@ -11,7 +11,7 @@
     "watch:css": "onchange \"theme/**/*.scss\" -- npm run build:css",
     "watch:css-dev": "onchange \"theme/**/*.scss\" -- npm run scss",
     "dev": "concurrently \"nodemon ./bin/Www\"  \"npm run watch:css-dev\" \"npm run reload\"",
-    "postinstall": "npm i -g concurrently && npm i -g node-sass"
+    "cocurrently": "npm i -g concurrently && npm i -g node-sass"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -25,7 +25,7 @@
     "express": "~4.15.2",
     "jwt-simple": "^0.5.1",
     "moment": "^2.18.1",
-    "mongoose": "^4.9.6",
+    "mongoose": "^4.10.6",
     "morgan": "~1.8.1",
     "pug": "^2.0.0-beta9",
     "serve-favicon": "~2.4.2"
