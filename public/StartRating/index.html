@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Rating</title>
+
+    <!- Styles(ReteYo) -->
+    <link rel="stylesheet" href="jquery.rateyo.min.css">
+
+    <!- Styles -->
+    <style media="screen">
+        body {
+            display: flex;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 36px;
+        }
+        #getRating {
+            border: none;
+            background: #29a05e;
+            border-radius: 3px;
+            color: white;
+            padding: .5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 3em 
+        }
+        a {
+            font-size: 1.1em;
+            color: #29a05e;
+            text-decoration: none
+        }
+        a:hover {
+            text-decoration: underline
+        }
+    
+    </style>
+
+</head>
+<body>
+    <h1>Star Rating</h1>
+
+    <!- Plugin(RateYo) -->
+    <div id="rateYo"></div>
+    <button id="getRating">Get Rating</button>
+    <p>By: <a href="http://rateyo.fundoocode.ninja/#" target="blank">RateYo!</a></p>
+    
+    <!-Library(RateYo) -->
+    <script src="jquery.min.js"></script>
+    <script src="jquery.rateyo.min.js"></script>
+
+    <!- Star Rating handle -->
+    <script>
+        $(function() {
+            var $rateYo = $("#rateYo").rateYo({
+                rating: 2,
+                fullStar: true,
+                spacing: "5px"
+            })
+
+            $("#getRating").click(function() {
+                var rating = $rateYo.rateYo("rating")
+                window.alert("Its " + rating)
+                console.log("Its " + rating)
+            })
+        })
+    </script>
+</body>
+</html>
